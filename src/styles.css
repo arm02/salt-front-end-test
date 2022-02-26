@@ -1,0 +1,191 @@
+/* Add application styles & imports to this file! */
+
+body {
+  background-color: #953e45;
+}
+
+.bg-theme-light {
+  background-color: #f4e4cd;
+}
+
+.bg-theme-dark {
+  background-color: #953e45;
+}
+
+.text-theme-dark {
+  color: #953e45;
+}
+
+.text-theme-light {
+  color: #f4e4cd;
+}
+
+.border-theme-dark {
+  border-color: #953e45 !important;
+}
+
+.border-theme-light {
+  border-color: #f4e4cd !important;
+}
+
+.brand {
+  font-size: 2rem;
+}
+
+.search-bar {
+  position: relative;
+  width: calc(100% - 550px);
+}
+
+.search-bar .btn-search {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  height: 100%;
+}
+
+.account .first-name {
+  font-size: 1rem;
+}
+.account .last-name {
+  font-size: 0.8rem;
+}
+
+.notification-badge {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  position: absolute;
+  right: -0.7rem;
+  top: -5px;
+}
+
+.notification-count {
+  font-size: 0.7rem;
+}
+
+.corner-button-light {
+  width: 0px;
+  height: 0px;
+  border-top: 1.2rem solid transparent;
+  border-bottom: 1.2rem solid transparent;
+  border-left: 1.2rem solid #f4e4cd;
+  transform: rotate(-45deg);
+}
+
+.corner-button-dark {
+  width: 0px;
+  height: 0px;
+  border-top: 1.2rem solid transparent;
+  border-bottom: 1.2rem solid transparent;
+  border-left: 1.2rem solid #953e45;
+  transform: rotate(-45deg);
+}
+
+.menu-bar > .menu-item {
+  margin-right: 2rem;
+  position: relative;
+}
+
+.menu-bar > .menu-item::after {
+  content: '/';
+  position: absolute;
+  right: -1.25rem;
+  color: #f4e4cd;
+}
+
+.menu-bar > .menu-item:last-child {
+  margin-right: 0;
+}
+
+.menu-bar > .menu-item:last-child::after {
+  content: '';
+}
+
+.content {
+  width: 100%;
+  padding-top: calc((3 / 4 * 100%) - 1rem);
+  position: relative;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.right-content .content {
+  padding-top: calc((3 / 4 * 100%) - 1.1rem);
+}
+
+.content-description {
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.activity-container {
+  margin: 1rem 0px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  position: relative;
+}
+
+.activity-container.active {
+  border: 1px solid #f4e4cd;
+}
+
+.activity-active-button {
+  position: absolute;
+  right: -4px;
+  top: -13px;
+}
+
+.activity-active-button .corner-button-light i {
+  position: absolute;
+  top: -5px;
+  right: 7px;
+  transform: rotate(45deg);
+  color: #953e45;
+}
+
+.activity-image-container {
+  width: 100px;
+  height: calc(9 / 16 * 100px);
+}
+
+.activity-description-container {
+  width: calc(100% - 100px - 1rem);
+  margin-left: 1rem;
+}
+
+.activity-name {
+  font-size: 0.6rem;
+}
+
+.channel-container {
+  width: 100%;
+  padding-top: calc((3 / 4 * 100%) - 1rem);
+  position: relative;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.channel-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.channel-add-button {
+  position: absolute;
+  right: -4px;
+  top: -13px;
+}
+
+.channel-add-button .corner-button-dark i {
+  position: absolute;
+  top: 0px;
+  right: 7px;
+  transform: rotate(45deg);
+  color: #f4e4cd;
+}
