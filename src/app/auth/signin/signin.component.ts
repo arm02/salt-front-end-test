@@ -20,7 +20,9 @@ export class SignInComponent  {
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
-
+  submit(){
+    window.location.reload()
+  }
   createAccount() {
     const dialogRef = this.dialog.open(SignUpComponent,{
       width: "600px",
