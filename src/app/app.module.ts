@@ -22,6 +22,10 @@ import { UploadPeopleComponent } from './content/people/upload-people/upload-peo
 import { UploadDocumentComponent } from './content/document/upload-document/upload-document.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { AllVideosComponent } from './content/videos/all-videos/all-videos.component';
+import { AllDocumentComponent } from './content/document/all-document/all-document.component';
+import { AllPeopleComponent } from './content/people/all-people/all-people.component';
+import { AllChannelComponent } from './content/channel/all-channel/all-channel.component';
+import { AllActivityComponent } from './content/activity/all-activity/all-activity.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { AllVideosComponent } from './content/videos/all-videos/all-videos.compo
     UploadVideosComponent,
     UploadPeopleComponent,
     UploadDocumentComponent,
-    AllVideosComponent
+    AllVideosComponent,
+    AllDocumentComponent,
+    AllPeopleComponent,
+    AllChannelComponent,
+    AllActivityComponent
   ],
   imports: [
     AppRoutingModule,
