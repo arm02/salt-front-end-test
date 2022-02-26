@@ -20,9 +20,7 @@
           "
         >
           <div class="d-flex flex-column">
-            <h4 class="text-theme-dark mb-0">
-              How to Improve your skills
-            </h4>
+            <h4 class="text-theme-dark mb-0">How to Improve your skills</h4>
             <span class="text-theme-dark"> Waseem Arshad </span>
           </div>
           <div>
@@ -48,9 +46,7 @@
                 <span class="text-theme-dark"> Michael Kaliph </span>
               </div>
               <div>
-                <span class="text-theme-dark fw-light"
-                  >1234 views</span
-                >
+                <span class="text-theme-dark fw-light">1234 views</span>
               </div>
             </div>
           </div>
@@ -70,9 +66,7 @@
                 <span class="text-theme-dark"> Ahmed Yasin </span>
               </div>
               <div>
-                <span class="text-theme-dark fw-light"
-                  >1234 views</span
-                >
+                <span class="text-theme-dark fw-light">1234 views</span>
               </div>
             </div>
           </div>
@@ -96,9 +90,7 @@
                 <span class="text-theme-dark"> Michael Kaliph </span>
               </div>
               <div>
-                <span class="text-theme-dark fw-light"
-                  >1234 views</span
-                >
+                <span class="text-theme-dark fw-light">1234 views</span>
               </div>
             </div>
           </div>
@@ -118,17 +110,14 @@
                 <span class="text-theme-dark"> Michael Kaliph </span>
               </div>
               <div>
-                <span class="text-theme-dark fw-light"
-                  >1234 views</span
-                >
+                <span class="text-theme-dark fw-light">1234 views</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-4">
-          <div
-            class="content bg-theme-dark border-theme-light border"
-          >
+        <div class="col-4" 
+        (click)="uploadVideos()">
+          <div class="content bg-theme-dark border-theme-light border">
             <div
               class="
                 content-description
@@ -139,7 +128,7 @@
                 justify-content-center
               "
             >
-              <a class="text-decoration-none" href="#">
+              <a class="text-decoration-none" href="javascript:void(0)">
                 <div
                   class="
                     d-flex
@@ -148,7 +137,7 @@
                     justify-content-center
                   "
                 >
-                  <div
+                  <div 
                     class="
                       bg-transparent
                       d-flex
@@ -161,9 +150,7 @@
                     "
                     style="width:50px;height:50px;"
                   >
-                    <i
-                      class="fa-solid fa-arrow-up text-theme-light"
-                    ></i>
+                  <i class="fa-solid fa-arrow-up text-theme-light"></i>
                   </div>
                   <div
                     class="
@@ -174,8 +161,8 @@
                       ms-3
                     "
                   >
-                    <span>Upload</span>
-                    <span>Your Own Video</span>
+                    <span>{{currentUser != null ? 'Upload' : 'Login'}}</span>
+                    <span>{{currentUser != null ? 'Your Own Video' : 'To Upload your Videos'}}</span>
                   </div>
                 </div>
               </a>

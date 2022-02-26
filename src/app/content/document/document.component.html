@@ -133,7 +133,8 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-4" 
+        (click)="uploadDocument()">
           <div
             class="content bg-theme-dark border-theme-light border"
           >
@@ -147,7 +148,7 @@
                 justify-content-center
               "
             >
-              <a class="text-decoration-none" href="#">
+              <a class="text-decoration-none" href="javascript:void(0)">
                 <div
                   class="
                     d-flex
@@ -180,8 +181,8 @@
                       ms-3
                     "
                   >
-                    <span>Share</span>
-                    <span>Your Document</span>
+                    <span>{{currentUser != null ? 'Share' : 'Login'}}</span>
+                    <span>{{currentUser != null ? 'Your Document' : 'To Upload your Document'}}</span>
                   </div>
                 </div>
               </a>

@@ -103,7 +103,7 @@
             </div>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-4" (click)="uploadWork()">
           <div class="content bg-theme-light">
             <div
               class="
@@ -177,8 +177,8 @@
                       ms-3
                     "
                   >
-                    <span>Upload</span>
-                    <span>Your Work</span>
+                    <span>{{currentUser != null ? 'Upload' : 'Login'}}</span>
+                    <span>{{currentUser != null ? 'Your Work' : 'To Upload your Document'}}</span>
                   </div>
                 </div>
               </a>
