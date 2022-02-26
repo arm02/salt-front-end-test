@@ -17,6 +17,9 @@ import { SignUpComponent } from './auth/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialExampleModule } from '../material.module';
+import { UploadVideosComponent } from './content/videos/upload-videos/upload-videos.component';
+import { UploadPeopleComponent } from './content/people/upload-people/upload-people.component';
+import { UploadDocumentComponent } from './content/document/upload-document/upload-document.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { MaterialExampleModule } from '../material.module';
     VideosComponent,
     SignInComponent,
     SignUpComponent,
+    UploadVideosComponent,
+    UploadPeopleComponent,
+    UploadDocumentComponent,
   ],
   imports: [
     AppRoutingModule,

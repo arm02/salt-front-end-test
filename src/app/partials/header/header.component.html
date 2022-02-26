@@ -11,7 +11,7 @@
     "
   >
     <div class="brand d-flex flex-row text-theme-light me-4">
-      <span (click)="openDialog()">Social</span>
+      <span>Social</span>
       <span class="fw-light">Network</span>
     </div>
     <div class="search-bar">
@@ -24,14 +24,14 @@
         <i class="fa-solid fa-search text-theme-dark"></i>
       </button>
     </div>
-    <button
+    <button (click)="uploadFile()"
       type="button"
       class="btn rounded-0 bg-theme-light text-theme-dark"
       style="width: 150px"
     >
       <i class="fa-solid fa-arrow-up me-2"></i>Upload
     </button>
-    <div class="account d-flex flex-row align-items-center position-relative">
+    <div class="account d-flex flex-row align-items-center position-relative" (click)="accountOpen()">
       <button
         type="button"
         class="btn rounded-0 bg-theme-light"
@@ -41,11 +41,12 @@
       </button>
       <div class="d-flex flex-column align-items-start mx-2">
         <span class="first-name text-theme-light"
-          >Waseem</span
+          >{{currentUser != null ? 'Username' : 'Login'}}</span
         >
-        <span class="last-name text-theme-light">Arshad</span>
+        <span class="last-name text-theme-light">{{currentUser != null ? 'Profile' : 'Account'}}</span>
       </div>
       <div
+      *ngIf="currentUser != null"
         class="
           notification-badge
           bg-theme-light
