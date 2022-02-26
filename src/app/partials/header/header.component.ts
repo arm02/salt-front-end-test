@@ -1,6 +1,7 @@
 import { Component, VERSION } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,10 @@ import { SignInComponent } from '../../auth/signin/signin.component';
 })
 export class HeaderComponent {
   currentUser = null;
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    console.log(this.currentUser)
+  }
 
   accountOpen() {
     if(this.currentUser == null){
@@ -23,6 +27,12 @@ export class HeaderComponent {
         console.log(`Dialog result: ${result}`);
       });
     }
+  }
+
+  logout() {  
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('jwt');
+    this.router.navigate(['/']);
   }
 
   uploadFile(){

@@ -43,9 +43,10 @@
       </button>
       <div class="d-flex flex-column align-items-start mx-2">
         <span class="first-name text-theme-light"
-          >{{currentUser != null ? 'Username' : 'Login'}}</span
+          >{{currentUser != null ? currentUser.fullName : 'Login'}}</span
         >
-        <span class="last-name text-theme-light">{{currentUser != null ? 'Profile' : 'Account'}}</span>
+        <span class="last-name text-theme-light" *ngIf="currentUser == null">Account</span>
+        <span class="last-name text-theme-light" (click)="logout()">Logout</span>
       </div>
       <div
       *ngIf="currentUser != null"
