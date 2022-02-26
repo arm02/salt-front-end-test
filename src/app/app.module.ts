@@ -30,7 +30,8 @@ import { MaterialExampleModule } from '../material.module';
     HttpClientModule,
     MatNativeDateModule,
     MaterialExampleModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule
+  ],
   declarations: [
     AppComponent,
     HomeComponent,
@@ -44,9 +45,6 @@ import { MaterialExampleModule } from '../material.module';
     VideosComponent,
     SignInComponent,
     SignUpComponent,
-  ],
-  exports: [
-    MatDialogModule
   ],
   bootstrap: [AppComponent],
 })
