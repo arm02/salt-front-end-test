@@ -1,7 +1,8 @@
-import { Component, VERSION } from '@angular/core';
+import { Component,IterableDiffers, VERSION } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
 import { UploadPeopleComponent } from './upload-people/upload-people.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'people-component',
@@ -10,10 +11,29 @@ import { UploadPeopleComponent } from './upload-people/upload-people.component';
 })
 export class PeopleComponent  {
   currentUser = null;
-  constructor(public dialog: MatDialog) {
-    this.currentUser = "T"
+  differ: any;
+  constructor(public dialog: MatDialog,
+    private userService: UserService,
+    differs: IterableDiffers) {
+      this.differ = differs.find([]).create(null);
+      this.userService.getRefresh().subscribe((value: any) => {
+        if (value) {
+          this.currentUser = value;
+        }
+      });
   }
 
+  ngDoCheck() {
+    const change = this.differ.diff([this.currentUser]);
+    if (change) {
+      this.userService.getRefresh().subscribe((value: any) => {
+        if (value) {
+          this.currentUser = value;
+        }
+      });
+    }
+  }
+  
   uploadWork() {
     if(this.currentUser == null){
       const dialogRef = this.dialog.open(SignInComponent,{

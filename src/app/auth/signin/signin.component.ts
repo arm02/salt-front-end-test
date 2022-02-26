@@ -33,7 +33,6 @@ export class SignInComponent {
     this.messageLoading = 'Checking Data ...';
     this.userService.login(this.username.value, this.password.value).subscribe(
       (data) => {
-        console.log(data)
           this.isLoading = false;
           localStorage.setItem('jwt', data.object.token);
           localStorage.setItem('role', data.object.roles);

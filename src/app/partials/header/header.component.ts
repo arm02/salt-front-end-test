@@ -1,7 +1,6 @@
 import { Component, IterableDiffers, VERSION } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
-import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -12,15 +11,17 @@ import { UserService } from '../../services/user.service';
 export class HeaderComponent {
   currentUser = null;
   differ: any;
-  constructor(public dialog: MatDialog, private router: Router, private activatedRoute: ActivatedRoute,
+  constructor(
+    public dialog: MatDialog,
     private userService: UserService,
-    differs: IterableDiffers) {
+    differs: IterableDiffers
+  ) {
     this.differ = differs.find([]).create(null);
     this.userService.getRefresh().subscribe((value: any) => {
       if (value) {
-        this.currentUser = value
+        this.currentUser = value;
       }
-    })
+    });
   }
 
   ngDoCheck() {
@@ -28,44 +29,43 @@ export class HeaderComponent {
     if (change) {
       this.userService.getRefresh().subscribe((value: any) => {
         if (value) {
-          this.currentUser = value
+          this.currentUser = value;
         }
-      })
+      });
     }
   }
 
   accountOpen() {
-    if(this.currentUser == null){
-      const dialogRef = this.dialog.open(SignInComponent,{
-        width: "600px",
+    if (this.currentUser == null) {
+      const dialogRef = this.dialog.open(SignInComponent, {
+        width: '600px',
         data: null,
-        disableClose: true
+        disableClose: true,
       });
-  
-      dialogRef.afterClosed().subscribe(result => {
+
+      dialogRef.afterClosed().subscribe((result) => {
         console.log(`Dialog result: ${result}`);
       });
     }
   }
 
-  logout() {  
+  logout() {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('jwt');
-    window.location.reload()
+    window.location.reload();
   }
 
-  uploadFile(){
-    if(this.currentUser == null){
-      const dialogRef = this.dialog.open(SignInComponent,{
-        width: "600px",
+  uploadFile() {
+    if (this.currentUser == null) {
+      const dialogRef = this.dialog.open(SignInComponent, {
+        width: '600px',
         data: null,
-        disableClose: true
+        disableClose: true,
       });
-  
-      dialogRef.afterClosed().subscribe(result => {
+
+      dialogRef.afterClosed().subscribe((result) => {
         console.log(`Dialog result: ${result}`);
       });
     }
   }
-  
 }
