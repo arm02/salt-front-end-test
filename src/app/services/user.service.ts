@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map, catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
@@ -10,11 +10,12 @@ import { AppConstant } from '../constant/AppConstant';
 })
 export class UserService {
   private refresh: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    if (JSON.parse(localStorage.getItem("currentUser")) != null) {
+      this.setRefresh(JSON.parse(localStorage.getItem("currentUser")))
+    }
+  }
   login(username: string, password: string) {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Token', localStorage.getItem('jwt'));
     let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_LOGIN;
     return this.http
       .post(url, {

@@ -46,7 +46,7 @@
           >{{currentUser != null ? currentUser.fullName : 'Login'}}</span
         >
         <span class="last-name text-theme-light" *ngIf="currentUser == null">Account</span>
-        <span class="last-name text-theme-light" (click)="logout()">Logout</span>
+        <span class="last-name text-theme-light" *ngIf="currentUser != null"><a href="javascript:void(0)" (click)="logout()">Logout</a></span>
       </div>
       <div
       *ngIf="currentUser != null"

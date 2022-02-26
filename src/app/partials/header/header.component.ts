@@ -1,7 +1,8 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, IterableDiffers, VERSION } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent {
   currentUser = null;
-  constructor(public dialog: MatDialog, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.currentUser = JSON.parse(localStorage.getItem("currentUser"))
-    console.log(this.currentUser)
+  differ: any;
+  constructor(public dialog: MatDialog, private router: Router, private activatedRoute: ActivatedRoute,
+    private userService: UserService,
+    differs: IterableDiffers) {
+    this.differ = differs.find([]).create(null);
+    this.userService.getRefresh().subscribe((value: any) => {
+      if (value) {
+        this.currentUser = value
+      }
+    })
+  }
+
+  ngDoCheck() {
+    const change = this.differ.diff([this.currentUser]);
+    if (change) {
+      this.userService.getRefresh().subscribe((value: any) => {
+        if (value) {
+          this.currentUser = value
+        }
+      })
+    }
   }
 
   accountOpen() {
@@ -32,7 +51,7 @@ export class HeaderComponent {
   logout() {  
     localStorage.removeItem('currentUser');
     localStorage.removeItem('jwt');
-    this.router.navigate(['/']);
+    window.location.reload()
   }
 
   uploadFile(){
