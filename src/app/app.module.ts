@@ -21,6 +21,7 @@ import { UploadVideosComponent } from './content/videos/upload-videos/upload-vid
 import { UploadPeopleComponent } from './content/people/upload-people/upload-people.component';
 import { UploadDocumentComponent } from './content/document/upload-document/upload-document.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { AllVideosComponent } from './content/videos/all-videos/all-videos.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     UploadVideosComponent,
     UploadPeopleComponent,
     UploadDocumentComponent,
+    AllVideosComponent
   ],
   imports: [
     AppRoutingModule,
