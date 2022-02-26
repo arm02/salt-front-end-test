@@ -15,10 +15,28 @@ import { PeopleComponent } from './content/people/people.component';
 import { VideosComponent } from './content/videos/videos.component';
 import { SignInComponent } from './auth/signin/signin.component';
 import { SignUpComponent } from './auth/signup/signup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
-  declarations: [AppComponent, HomeComponent, NavbarComponent, HeaderComponent, FooterComponent, ActivityComponent, ChannelComponent, DocumentComponent, PeopleComponent, VideosComponent, SignInComponent, SignUpComponent],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, MatDialogModule, BrowserAnimationsModule],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    HeaderComponent,
+    FooterComponent,
+    ActivityComponent,
+    ChannelComponent,
+    DocumentComponent,
+    PeopleComponent,
+    VideosComponent,
+    SignInComponent,
+    SignUpComponent,
+  ],
+  exports: [
+    MatDialogModule
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,60 +1,63 @@
 <div id="header" class="row">
-<div
-  class="
-    col-12
-    d-flex
-    flex-row
-    align-items-center
-    py-4
-    w-100
-    justify-content-between
-  "
->
-  <div class="brand d-flex flex-row text-theme-light me-4">
-    <span>Social</span>
-    <span class="fw-light">Network</span>
-  </div>
-  <div class="search-bar">
-    <input
-      type="text"
-      class="form-control rounded-0 bg-theme-light text-theme-dark"
-      placeholder="Find..."
-    />
-    <button type="button" class="btn btn-search">
-      <i class="fa-solid fa-search text-theme-dark"></i>
-    </button>
-  </div>
-  <button
-    type="button"
-    class="btn rounded-0 bg-theme-light text-theme-dark"
-    style="width: 150px"
+  <div
+    class="
+      col-12
+      d-flex
+      flex-row
+      align-items-center
+      py-4
+      w-100
+      justify-content-between
+    "
   >
-    <i class="fa-solid fa-arrow-up me-2"></i>Upload
-  </button>
-  <div class="account d-flex flex-row align-items-center position-relative">
+    <div class="brand d-flex flex-row text-theme-light me-4">
+      <span>Social</span>
+      <span class="fw-light">Network</span>
+    </div>
+    <div class="search-bar">
+      <input
+        type="text"
+        class="form-control rounded-0 bg-theme-light text-theme-dark"
+        placeholder="Find..."
+      />
+      <button type="button" class="btn btn-search">
+        <i class="fa-solid fa-search text-theme-dark"></i>
+      </button>
+    </div>
     <button
       type="button"
-      class="btn rounded-0 bg-theme-light"
-      style="height: 38px; width: 38px;"
+      class="btn rounded-0 bg-theme-light text-theme-dark"
+      style="width: 150px"
     >
-      <i class="fa-solid fa-user text-theme-dark"></i>
+      <i class="fa-solid fa-arrow-up me-2"></i>Upload
     </button>
-    <div class="d-flex flex-column align-items-start mx-2">
-      <span class="first-name text-theme-light">Waseem</span>
-      <span class="last-name text-theme-light">Arshad</span>
-    </div>
-    <div
-      class="
-        notification-badge
-        bg-theme-light
-        d-flex
-        flex-column
-        align-items-center
-        justify-content-center
-      "
-    >
-      <span class="text-theme-dark notification-count">5</span>
+    <div class="account d-flex flex-row align-items-center position-relative">
+      <button
+        (click)="openDialog()"
+        type="button"
+        class="btn rounded-0 bg-theme-light"
+        style="height: 38px; width: 38px;"
+      >
+        <i class="fa-solid fa-user text-theme-dark"></i>
+      </button>
+      <div class="d-flex flex-column align-items-start mx-2">
+        <span class="first-name text-theme-light" (click)="openDialog()"
+          >Waseem</span
+        >
+        <span class="last-name text-theme-light">Arshad</span>
+      </div>
+      <div
+        class="
+          notification-badge
+          bg-theme-light
+          d-flex
+          flex-column
+          align-items-center
+          justify-content-center
+        "
+      >
+        <span class="text-theme-dark notification-count">5</span>
+      </div>
     </div>
   </div>
-</div>
 </div>
