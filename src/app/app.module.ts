@@ -20,6 +20,7 @@ import { MaterialExampleModule } from '../material.module';
 import { UploadVideosComponent } from './content/videos/upload-videos/upload-videos.component';
 import { UploadPeopleComponent } from './content/people/upload-people/upload-people.component';
 import { UploadDocumentComponent } from './content/document/upload-document/upload-document.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { UploadDocumentComponent } from './content/document/upload-document/uplo
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MaterialExampleModule
+    MaterialExampleModule,
+    InfiniteScrollModule
   ],
   bootstrap: [AppComponent],
 })
