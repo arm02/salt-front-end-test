@@ -48,7 +48,7 @@ import { AllActivityComponent } from './content/activity/all-activity/all-activi
     AllDocumentComponent,
     AllPeopleComponent,
     AllChannelComponent,
-    AllActivityComponent
+    AllActivityComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -58,7 +58,7 @@ import { AllActivityComponent } from './content/activity/all-activity/all-activi
     HttpClientModule,
     ReactiveFormsModule,
     MaterialExampleModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
   ],
   bootstrap: [AppComponent],
 })
