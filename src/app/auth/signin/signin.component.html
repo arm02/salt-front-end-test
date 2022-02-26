@@ -10,35 +10,48 @@
     </div>
   </div>
   <hr class="mb-3 text-theme-light" />
-  <form class="col-12" action="saveWorkplace()">
+  <form class="col-12" (ngSubmit)="onSubmitSignIn()" #signinForm="ngForm">
     <div class="row mb-5">
       <div class="form-group col-12 mb-3">
-        <label for="name" class="text-theme-light">Email</label>
+        <label for="username" class="text-theme-light">Username</label>
         <input
-          name="name"
+          name="username"
           type="text"
           class="form-control input-remove-border"
-          id="name"
+          id="username"
+          [formControl]="username"
+          required
         />
       </div>
       <div class="form-group col-12">
-        <label for="name" class="text-theme-light">Password</label>
+        <label for="password" class="text-theme-light">Password</label>
         <input
-          name="name"
-          type="text"
+          name="password"
+          type="password"
           class="form-control input-remove-border"
-          id="name"
+          id="password"
+          [formControl]="password"
         />
       </div>
-      <label class="text-theme-light mt-2">Dont have a account ? <a href="javascript:void(0)" class="text-theme-light" mat-dialog-close (click)="createAccount()">Create here</a> !</label>
+      <label class="text-theme-light mt-2"
+        >Dont have a account ?
+        <a
+          href="javascript:void(0)"
+          class="text-theme-light"
+          mat-dialog-close
+          (click)="createAccount()"
+          >Create here</a
+        >
+        !</label
+      >
     </div>
-    <button (click)="submit()"
+    <button
+      [disabled]="isLoading"
       type="button"
       class="btn rounded-0 bg-theme-light text-theme-dark"
       style="width: 100%"
     >
-      <i class="fa-solid fa-sign-in me-2"></i>Submit
+      <i class="fa-solid fa-sign-in me-2"></i>{{ messageLoading }}
     </button>
   </form>
 </mat-dialog-content>
-
