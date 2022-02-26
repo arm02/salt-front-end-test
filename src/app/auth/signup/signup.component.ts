@@ -1,4 +1,7 @@
 import { Component, VERSION } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import { SignInComponent } from '../signin/signin.component';
 
 @Component({
   selector: 'signup-component',
@@ -6,5 +9,19 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: [ './signup.component.css' ]
 })
 export class SignUpComponent  {
-  name = 'Angular ' + VERSION.major;
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  constructor(public dialog: MatDialog) {}
+
+  login() {
+    const dialogRef = this.dialog.open(SignInComponent,{
+      width: "600px",
+      data: null,
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

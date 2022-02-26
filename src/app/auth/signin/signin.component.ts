@@ -1,4 +1,7 @@
 import { Component, VERSION } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import { SignUpComponent } from '../signup/signup.component';
 
 @Component({
   selector: 'signin-component',
@@ -6,5 +9,27 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: [ './signin.component.css' ]
 })
 export class SignInComponent  {
-  name = 'Angular ' + VERSION.major;
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  constructor(public dialog: MatDialog) {}
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+
+  createAccount() {
+    const dialogRef = this.dialog.open(SignUpComponent,{
+      width: "600px",
+      data: null,
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

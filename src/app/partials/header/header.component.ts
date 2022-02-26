@@ -11,7 +11,11 @@ export class HeaderComponent {
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(SignInComponent);
+    const dialogRef = this.dialog.open(SignInComponent,{
+      width: "600px",
+      data: null,
+      disableClose: true
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

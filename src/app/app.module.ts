@@ -19,15 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialExampleModule } from '../material.module';
 
 @NgModule({
-  imports: [
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MaterialExampleModule,
-  ],
   declarations: [
     AppComponent,
     HomeComponent,
@@ -41,6 +32,15 @@ import { MaterialExampleModule } from '../material.module';
     VideosComponent,
     SignInComponent,
     SignUpComponent,
+  ],
+  imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MaterialExampleModule
   ],
   bootstrap: [AppComponent],
 })
