@@ -1,58 +1,58 @@
 /* Add application styles & imports to this file! */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-body {
-  background-color: #953e45;
+body{
+  background-color: #953E45;
 }
 
-.bg-theme-light {
-  background-color: #f4e4cd;
+.bg-theme-light{
+  background-color: #F4E4CD;
 }
 
-.bg-theme-dark {
-  background-color: #953e45;
+.bg-theme-dark{
+  background-color: #953E45;
 }
 
-.text-theme-dark {
-  color: #953e45;
+.text-theme-dark{
+  color: #953E45
 }
 
-.text-theme-light {
-  color: #f4e4cd;
+.text-theme-light{
+  color: #F4E4CD
 }
 
-.border-theme-dark {
-  border-color: #953e45 !important;
+.border-theme-dark{
+  border-color: #953E45 !important
 }
 
-.border-theme-light {
-  border-color: #f4e4cd !important;
+.border-theme-light{
+  border-color: #F4E4CD !important
 }
 
-.brand {
+.brand{
   font-size: 2rem;
 }
 
-.search-bar {
+.search-bar{
   position: relative;
   width: calc(100% - 550px);
 }
 
-.search-bar .btn-search {
+.search-bar .btn-search{
   position: absolute;
   right: 5px;
   top: 0;
   height: 100%;
 }
 
-.account .first-name {
+.account .first-name{
   font-size: 1rem;
 }
-.account .last-name {
+.account .last-name{
   font-size: 0.8rem;
 }
 
-.notification-badge {
+.notification-badge{
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 50%;
@@ -61,61 +61,62 @@ body {
   top: -5px;
 }
 
-.notification-count {
+.notification-count{
   font-size: 0.7rem;
 }
 
-.corner-button-light {
+.corner-button-light{
   width: 0px;
   height: 0px;
   border-top: 1.2rem solid transparent;
   border-bottom: 1.2rem solid transparent;
-  border-left: 1.2rem solid #f4e4cd;
+  border-left: 1.2rem solid #F4E4CD;
   transform: rotate(-45deg);
 }
 
-.corner-button-dark {
+.corner-button-dark{
   width: 0px;
   height: 0px;
   border-top: 1.2rem solid transparent;
   border-bottom: 1.2rem solid transparent;
-  border-left: 1.2rem solid #953e45;
+  border-left: 1.2rem solid #953E45;
   transform: rotate(-45deg);
 }
 
-.menu-bar > .menu-item {
+
+.menu-bar > .menu-item{
   margin-right: 2rem;
   position: relative;
 }
 
-.menu-bar > .menu-item::after {
+.menu-bar > .menu-item::after{
   content: '/';
   position: absolute;
   right: -1.25rem;
-  color: #f4e4cd;
+  color: #F4E4CD
 }
 
-.menu-bar > .menu-item:last-child {
+.menu-bar > .menu-item:last-child{
   margin-right: 0;
 }
 
-.menu-bar > .menu-item:last-child::after {
+.menu-bar > .menu-item:last-child::after{
   content: '';
 }
 
-.content {
+.content{
   width: 100%;
-  padding-top: calc((3 / 4 * 100%) - 1rem);
-  position: relative;
+  padding-top: calc((3/4 * 100%) - 1rem); /* 1:1 Aspect Ratio */
+  position: relative; /* If you want text inside of it */
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.right-content .content {
-  padding-top: calc((3 / 4 * 100%) - 1.1rem);
+.right-content .content{
+  padding-top: calc((3/4 * 100%) - 1.1rem);
 }
 
-.content-description {
+.content-description{
   padding: 1rem;
   position: absolute;
   bottom: 0;
@@ -123,18 +124,18 @@ body {
   width: 100%;
 }
 
-.activity-container {
+.activity-container{
   margin: 1rem 0px;
   padding: 0.5rem;
   font-size: 0.8rem;
   position: relative;
 }
 
-.activity-container.active {
-  border: 1px solid #f4e4cd;
+.activity-container.active{
+  border: 1px solid #F4E4CD
 }
 
-.activity-active-button {
+.activity-active-button{
   position: absolute;
   right: -4px;
   top: -13px;
@@ -145,50 +146,70 @@ body {
   top: -5px;
   right: 7px;
   transform: rotate(45deg);
-  color: #953e45;
+  color: #953E45;
 }
 
-.activity-image-container {
+.activity-image-container{
   width: 100px;
-  height: calc(9 / 16 * 100px);
+  height: calc(9/16 * 100px);
 }
 
-.activity-description-container {
+.activity-description-container{
   width: calc(100% - 100px - 1rem);
   margin-left: 1rem;
 }
 
-.activity-name {
+.activity-name{
   font-size: 0.6rem;
 }
 
-.channel-container {
+.channel-container{
   width: 100%;
-  padding-top: calc((3 / 4 * 100%) - 1rem);
-  position: relative;
+  padding-top: calc((3/4 * 100%) - 1rem); /* 1:1 Aspect Ratio */
+  position: relative; /* If you want text inside of it */
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
-.channel-description {
+.channel-description{
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  padding: 1rem
 }
 
-.channel-add-button {
+.channel-add-button{
   position: absolute;
   right: -4px;
   top: -13px;
 }
 
-.channel-add-button .corner-button-dark i {
+.channel-add-button .corner-button-dark i{
   position: absolute;
   top: 0px;
   right: 7px;
   transform: rotate(45deg);
-  color: #f4e4cd;
+  color: #F4E4CD;
 }
+.overflow-img{overflow: hidden; position: relative;}
+.img-box{
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  width: 130%;
+  bottom: 0;
+}
+/*.content{display: contents;}*/
+.full-video{padding: 0px;}
+.no-padding{padding: 0px !important;}
+.lv-text{position: relative; color: #fff;}
 
-
+@media only screen and (max-width: 600px) {
+.header-mobile {display: block !important;}
+.search-bar{width: 100%; margin-bottom: 5px;}
+.menu-bar-mobile{overflow-x: scroll;}
+.footer-bar{display: block !important;}
+.btn-search-mobile{width: 100% !important;}
+.notification-badge{right: 14.3rem;}
+.account {margin-top: 20px; margin-bottom: -20px;}
+}
