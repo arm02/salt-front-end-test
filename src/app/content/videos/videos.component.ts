@@ -43,7 +43,7 @@ export class VideosComponent  {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        
       });
     }else{
       const dialogRef = this.dialog.open(UploadVideosComponent,{
@@ -53,7 +53,7 @@ export class VideosComponent  {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        
       });
     }
   }

@@ -43,7 +43,7 @@ export class DocumentComponent  {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        
       });
     }else{
       const dialogRef = this.dialog.open(UploadDocumentComponent,{
@@ -53,7 +53,7 @@ export class DocumentComponent  {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
+        
       });
     }
   }
