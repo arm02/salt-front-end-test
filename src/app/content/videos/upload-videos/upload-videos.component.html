@@ -1,33 +1,32 @@
 <mat-dialog-content>
-<div class="row">
-  <div class="col-11">
-    <h5 class="text-theme-light">Upload Your Videos</h5>
-  </div>
-  <div class="col-1 text-right">
-    <button mat-dialog-close class="btn btn-sm pr-0 text-theme-light">
-      <i class="fas fa-times"></i>
-    </button>
-  </div>
-</div>
-<hr class="mb-3 text-theme-light" />
-<form class="col-12" action="saveWorkplace()">
-  <div class="row mb-3">
-    <div class="form-group col-12 mb-3">
-      <label for="name" class="text-theme-light">File</label>
-      <input
-        name="name"
-        type="file"
-        class="form-control input-remove-border"
-        id="name"
-      />
+  <div class="row">
+    <div class="col-11">
+      <h5 class="text-theme-light">Upload Your Videos</h5>
+    </div>
+    <div class="col-1 text-right">
+      <button mat-dialog-close class="btn btn-sm pr-0 text-theme-light">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
   </div>
-  <button
-    type="button"
-    class="btn rounded-0 bg-theme-light text-theme-dark"
-    style="width: 100%"
-  >
-    <i class="fa-solid fa-sign-in me-2"></i>Submit
-  </button>
-</form>
+  <hr class="mb-3 text-theme-light" />
+  <form class="col-12">
+    <div class="row mb-3">
+      <div class="form-group col-12 mb-3">
+        <label for="name" class="text-theme-light">Title</label>
+        <input name="name" type="text" class="form-control" id="name" />
+      </div>
+      <div class="form-group col-12 mb-3">
+        <label for="name" class="text-theme-light">File</label>
+        <input name="name" type="file" class="form-control" id="name" />
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn rounded-0 bg-theme-light text-theme-dark"
+      style="width: 100%"
+    >
+      <i class="fa-solid fa-upload me-2"></i>Upload
+    </button>
+  </form>
 </mat-dialog-content>
