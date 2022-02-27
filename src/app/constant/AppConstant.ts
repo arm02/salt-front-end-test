@@ -6,4 +6,5 @@ export class AppConstant {
 
   public static API_GET_HOME_NETWORK = '/api/home/network/get'
   public static API_UPLOAD_NETWORK = '/api/upload-network'
+  public static API_CREATE_NETWORK = '/api/network/create'
 }

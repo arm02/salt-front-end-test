@@ -35,6 +35,26 @@ export class NetworkService {
       );
   }
 
+  uploadNetwork(data) {
+    const headers = new HttpHeaders().set("token", localStorage.getItem("jwt"));
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_CREATE_NETWORK;
+    return this.http.post(url, data,
+      {
+        headers
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          } else {
+            throw new Error(res.message);
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
   uploadFile(data) {
     const headers = new HttpHeaders().set("token", localStorage.getItem("jwt"));
     let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_UPLOAD_NETWORK;

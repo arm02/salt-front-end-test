@@ -1,5 +1,5 @@
 import { Component, VERSION } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { UserService } from '../../../services/user.service';
 import { NetworkService } from '../../../services/network.service';
 import { NetworkData } from '../../../models/network-data';
@@ -11,12 +11,13 @@ import { NetworkData } from '../../../models/network-data';
 })
 export class UploadVideosComponent  {
   fileToUpload: File = null;
-  loading = false
+  isLoading = false
   messageLoading = 'Upload';
 
   networkData = new NetworkData
   
   constructor(public dialog: MatDialog,
+    public dialogRef: MatDialogRef<UploadVideosComponent>,
     private networkService: NetworkService) {
   }
 
@@ -25,13 +26,24 @@ export class UploadVideosComponent  {
       this.fileToUpload = event.target.files.item(0)
       if (event.target.files && event.target.files[0]) {
         const formData = new FormData();
-        formData.append('file-images', event.target.files.item(0));
-        this.loading = true
+        formData.append('file', event.target.files.item(0));
+        this.isLoading = true
         this.networkService.uploadFile(formData).subscribe(data => {
-          this.loading = false
+          this.isLoading = false
           this.networkData.path = data.url
         })
       }
     }
+  }
+
+  uploadVideos(){
+    this.isLoading = true
+    this.networkData.views = 0
+    this.networkData.type = 'VIDEO'
+    this.networkService.uploadNetwork(this.networkData).subscribe(data => {
+      console.log(data)
+      this.isLoading = false
+      this.dialogRef.close(true);
+    })
   }
 }
