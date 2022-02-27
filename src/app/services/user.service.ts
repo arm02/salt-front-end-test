@@ -77,7 +77,7 @@ export class UserService {
     console.error(errMsg); // log to console instead
     if (error.status == 401 || error.status == 403) {
       localStorage.removeItem('jwt');
-      this.router.navigate(['/auth/signin']);
+      this.router.navigate(['/']);
     } else {
       return throwError(errMsg);
     }

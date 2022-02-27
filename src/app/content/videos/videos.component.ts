@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
 import { UploadVideosComponent } from './upload-videos/upload-videos.component';
 import { UserService } from '../../services/user.service';
+import { NetworkService } from '../../services/network.service';
 
 @Component({
   selector: 'videos-component',
@@ -11,9 +12,11 @@ import { UserService } from '../../services/user.service';
 })
 export class VideosComponent  {
   currentUser = null;
+  query: string;
   differ: any;
   constructor(public dialog: MatDialog,
     private userService: UserService,
+    private networkService: NetworkService,
     differs: IterableDiffers) {
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {
@@ -32,6 +35,16 @@ export class VideosComponent  {
         }
       });
     }
+  }
+
+  loadHomeVideos(){
+    this.networkService.getHomeNetwork(this.query, 'VIDEO').subscribe(
+      data => {
+        
+      }, error => {
+        console.log(error)
+      }
+    )
   }
 
   uploadVideos() {
