@@ -27,11 +27,31 @@ export class UserService {
           let res = JSON.parse(JSON.stringify(response));
           if (res.returnValue == '200') {
             return res;
-          } else if (res.returnValue == '002') {
-            localStorage.removeItem('jwt');
-            this.router.navigate(['/auth/signin/']);
+          }  else {
             throw new Error(res.message);
-          } else {
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
+  signup(fullName: string, email: string, username: string, password: string) {
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_SIGNUP;
+    return this.http
+      .post(url, {
+        fullName: fullName,
+        username: username,
+        email: email,
+        password: password,
+        profilePhoto: 'https://inspektorat.kotawaringinbaratkab.go.id/public/uploads/user/default-user-imge.jpeg',
+        roles: ['admin']
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          }  else {
             throw new Error(res.message);
           }
         }),
