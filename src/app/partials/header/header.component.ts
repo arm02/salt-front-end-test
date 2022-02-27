@@ -1,6 +1,7 @@
 import { Component, IterableDiffers, VERSION } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
+import { UploadContentComponent } from '../../content/upload-content.component';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -58,6 +59,16 @@ export class HeaderComponent {
   uploadFile() {
     if (this.currentUser == null) {
       const dialogRef = this.dialog.open(SignInComponent, {
+        width: '600px',
+        data: null,
+        disableClose: true,
+      });
+
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }else{
+      const dialogRef = this.dialog.open(UploadContentComponent, {
         width: '600px',
         data: null,
         disableClose: true,

@@ -26,6 +26,7 @@ import { AllDocumentComponent } from './content/document/all-document/all-docume
 import { AllPeopleComponent } from './content/people/all-people/all-people.component';
 import { AllChannelComponent } from './content/channel/all-channel/all-channel.component';
 import { AllActivityComponent } from './content/activity/all-activity/all-activity.component';
+import { UploadContentComponent } from './content/upload-content.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { AllActivityComponent } from './content/activity/all-activity/all-activi
     AllPeopleComponent,
     AllChannelComponent,
     AllActivityComponent,
+    UploadContentComponent
   ],
   imports: [
     AppRoutingModule,
