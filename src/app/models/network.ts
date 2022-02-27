@@ -1,21 +1,12 @@
 export class Network {
-  id: number,
-  title: string,
-  createdBy: number,
-  views: number,
-  type: string,
-  path: string,
-  createdAt: date,
-  updatedAt: date,
-  user: {
-    id: number,
-    username: string,
-    email: string,
-    password: string,
-    fullName: string,
-    profilePhoto: string,
-    status: string,
-    createdAt: date,
-    updatedAt: date
-    }
+  limit: number
+  message: string
+  object1: any
+  object2: any
+  object3: any
+  object4: any
+  object5: any
+  page: 0
+  returnValue: 200
+  rowCount: 4
 }

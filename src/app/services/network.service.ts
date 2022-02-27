@@ -13,7 +13,7 @@ export class NetworkService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getHomeNetwork(query: string, type: string = null) {
-    const headers = new HttpHeaders().set("Content-Type", "application/json").set("Token", localStorage.getItem("jwt"));
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
     let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_GET_HOME_NETWORK + "?";
     url += "q=" + (query == null ? "" : query)
     url += "&type=" + type
@@ -35,11 +35,31 @@ export class NetworkService {
       );
   }
 
+  uploadFile(data) {
+    const headers = new HttpHeaders().set("token", localStorage.getItem("jwt"));
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_UPLOAD_NETWORK;
+    return this.http.post(url, data,
+      {
+        headers
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          } else {
+            throw new Error(res.message);
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
   private handleError(error: any) {
     let errMsg = error.message
       ? error.message
-      : error.status
-      ? `${error.status} - ${error.statusText}`
+      : error.returnValue
+      ? `${error.returnValue} - ${error.message}`
       : 'Server error';
     console.error(errMsg); // log to console instead
     if (error.status == 401 || error.status == 403) {

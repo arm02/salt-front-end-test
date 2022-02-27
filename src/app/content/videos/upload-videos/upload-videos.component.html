@@ -13,12 +13,12 @@
   <form class="col-12">
     <div class="row mb-3">
       <div class="form-group col-12 mb-3">
-        <label for="name" class="text-theme-light">Title</label>
-        <input name="name" type="text" class="form-control" id="name" />
+        <label for="title" class="text-theme-light">Title</label>
+        <input name="title" type="text" class="form-control" id="title" [(ngModel)]="networkData.title" />
       </div>
       <div class="form-group col-12 mb-3">
-        <label for="name" class="text-theme-light">File</label>
-        <input name="name" type="file" class="form-control" id="name" />
+        <label for="file" class="text-theme-light">File</label>
+        <input name="file" type="file" class="form-control" id="file"  />
       </div>
     </div>
     <button
@@ -26,7 +26,7 @@
       class="btn rounded-0 bg-theme-light text-theme-dark"
       style="width: 100%"
     >
-      <i class="fa-solid fa-upload me-2"></i>Upload
+      <i class="fa-solid fa-upload me-2"></i>{{messageLoading}}
     </button>
   </form>
 </mat-dialog-content>

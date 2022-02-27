@@ -4,6 +4,7 @@ import { SignInComponent } from '../../auth/signin/signin.component';
 import { UploadVideosComponent } from './upload-videos/upload-videos.component';
 import { UserService } from '../../services/user.service';
 import { NetworkService } from '../../services/network.service';
+import { Network } from '../../models/network';
 
 @Component({
   selector: 'videos-component',
@@ -14,14 +15,19 @@ export class VideosComponent  {
   currentUser = null;
   query: string;
   differ: any;
+
+  network = new Network
   constructor(public dialog: MatDialog,
     private userService: UserService,
     private networkService: NetworkService,
     differs: IterableDiffers) {
+      this.loadHomeVideos()
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {
         if (value) {
           this.currentUser = value;
+          if(this.currentUser){
+          }
         }
       });
   }
@@ -32,6 +38,9 @@ export class VideosComponent  {
       this.userService.getRefresh().subscribe((value: any) => {
         if (value) {
           this.currentUser = value;
+          if(this.currentUser){
+            this.loadHomeVideos()
+          }
         }
       });
     }
@@ -40,7 +49,7 @@ export class VideosComponent  {
   loadHomeVideos(){
     this.networkService.getHomeNetwork(this.query, 'VIDEO').subscribe(
       data => {
-        
+        this.network = data
       }, error => {
         console.log(error)
       }
