@@ -75,7 +75,9 @@ export class VideosComponent  {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        
+        if(result){
+          this.loadHomeVideos()
+        }
       });
     }
   }
