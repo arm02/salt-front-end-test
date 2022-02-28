@@ -142,6 +142,48 @@ export class NetworkService {
       );
   }
 
+  commentPost(data) {
+    const headers = new HttpHeaders().set("token", localStorage.getItem("jwt"));
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_POST_COMMENT;
+    return this.http.post(url, data,
+      {
+        headers
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          } else {
+            throw new Error(res.message);
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
+  getAllComment(idNetwork: number) {
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_GET_COMMENT + "?";
+    url += "id_network=" + (idNetwork == null ? "" : idNetwork)
+
+    return this.http.get(url,
+      {
+        headers
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          } else {
+            throw new Error(res.message);
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
   sendUpdate() { 
     this.subjectName.next({}); 
   }

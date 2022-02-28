@@ -7,6 +7,5 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
- 
 }
 

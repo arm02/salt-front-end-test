@@ -1,6 +1,6 @@
 <div id="video" class="my-4">
 <div class="content-header d-flex flex-row align-items-center">
-    <h3 class="content-title mb-3 text-theme-light">Videos</h3>
+    <h3 class="content-title mb-3 text-theme-light">{{networkData.type}}</h3>
 </div>
 <div class="content-body row">
     <div class="col-8 bottom-content">
@@ -29,15 +29,15 @@
                     <form>
                       <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label text-theme-light">Your comment</label>
-                        <input type="text" class="form-control" id="inputComment" aria-describedby="">
+                        <input type="text" class="form-control" id="inputComment" name="message" [(ngModel)]="comment.message" aria-describedby="">
                       </div>
-                      <button type="submit" class="btn rounded-0 bg-theme-light text-theme-dark float-end">Submit</button>
+                      <button (click)="postComment()" type="submit" class="btn rounded-0 bg-theme-light text-theme-dark float-end">Post</button>
                     </form>
                 </div>
                         <div class="col-md-12 scroll">
-                            <div class="card p-3 mb-2">
+                            <div class="card p-3 mb-2" *ngFor="let commentar of comments">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="user d-flex flex-row align-items-center"> <img style="margin-right: 10px;" src="images/user.jpg" width="30" class="user-img rounded-circle mr-2"> <span><small class="font-weight-bold text-theme-light">james_olesenn</small> <br> <small class="font-weight-bold">Hmm, This poster looks cool</small></span> </div>
+                                    <div class="user d-flex flex-row align-items-center"> <img style="margin-right: 10px;" src="{{commentar.user.profilePhoto}}" width="30" class="user-img rounded-circle mr-2"> <span><small class="font-weight-bold text-theme-light">{{commentar.user ? commentar.user.fullName : '-'}}</small> <br> <small class="font-weight-bold">{{commentar ? commentar.message : '-'}}</small></span> </div>
                                 </div>
                             </div>
                         </div>

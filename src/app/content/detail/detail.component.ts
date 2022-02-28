@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { NetworkService } from '../../services/network.service';
 import { NetworkData } from '../../models/network-data';
+import { Comment } from '../../models/comment';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 
@@ -16,6 +17,8 @@ export class DetailComponent {
   query: string;
   differ: any;
   networkData = new NetworkData
+  comment = new Comment
+  comments: Comment[] = []
   idNetwork: number = null
   private subscriptionName: Subscription;
   constructor(private route: ActivatedRoute,
@@ -33,6 +36,7 @@ export class DetailComponent {
         }
       });
     this.loadNetwork(idNetwork)
+    this.loadComment()
   }
 
   ngDoCheck() {
@@ -57,6 +61,29 @@ export class DetailComponent {
     this.networkService.getNetwork(id).subscribe(
       data => {
         this.networkData = data.object
+      }, error => {
+        console.log(error)
+      }
+    )
+  }
+
+  postComment(){
+    this.comment.idNetwork = this.idNetwork
+    this.networkService.commentPost(this.comment).subscribe(
+      data => {
+        this.comment.message = null
+        this.loadComment()
+      }, error => {
+        console.log(error)
+      }
+    )
+  }
+
+  loadComment(){
+    this.networkService.getAllComment(this.idNetwork).subscribe(
+      data => {
+        this.comments = data.object
+        console.log(this.comments)
       }, error => {
         console.log(error)
       }

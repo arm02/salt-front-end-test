@@ -9,4 +9,6 @@ export class AppConstant {
   public static API_GET_ACTIVITY = '/api/activity/get'
   public static API_UPLOAD_NETWORK = '/api/upload-network'
   public static API_CREATE_NETWORK = '/api/network/create'
+  public static API_POST_COMMENT = '/api/comment/post'
+  public static API_GET_COMMENT = '/api/comment/get'
 }

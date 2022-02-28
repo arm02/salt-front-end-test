@@ -6,6 +6,7 @@ import { AllPeopleComponent } from './content/people/all-people/all-people.compo
 import { AllActivityComponent } from './content/activity/all-activity/all-activity.component';
 import { AllChannelComponent } from './content/channel/all-channel/all-channel.component';
 import { DetailComponent } from './content/detail/detail.component';
+import { SearchComponent } from './content/search/search.component';
 import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
@@ -41,6 +42,10 @@ const appRoutes: Routes = [
   {
      path: 'detail/:id',
      component: DetailComponent
+  },
+  {
+     path: 'search',
+     component: SearchComponent
   }
 ];
 

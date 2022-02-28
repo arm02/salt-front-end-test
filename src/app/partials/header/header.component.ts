@@ -5,6 +5,7 @@ import { UploadContentComponent } from '../../content/upload-content.component';
 import { UserService } from '../../services/user.service';
 import { NetworkService } from '../../services/network.service';
 import { Network } from '../../models/network';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ import { Network } from '../../models/network';
 export class HeaderComponent {
   currentUser = null;
   differ: any;
-  constructor(
+  constructor(private router: ActivatedRoute,
     public dialog: MatDialog,
     private userService: UserService,
     private networkService: NetworkService,

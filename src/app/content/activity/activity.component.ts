@@ -18,7 +18,6 @@ export class ActivityComponent {
     this.networkService.getAllActivity(this.query).subscribe(
       (data) => {
         this.activitys = data.object;
-        console.log(this.activitys);
       },
       (error) => {
         console.log(error);
