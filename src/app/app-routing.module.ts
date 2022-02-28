@@ -5,6 +5,7 @@ import { AllDocumentComponent } from './content/document/all-document/all-docume
 import { AllPeopleComponent } from './content/people/all-people/all-people.component';
 import { AllActivityComponent } from './content/activity/all-activity/all-activity.component';
 import { AllChannelComponent } from './content/channel/all-channel/all-channel.component';
+import { DetailComponent } from './content/detail/detail.component';
 import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
@@ -34,8 +35,12 @@ const appRoutes: Routes = [
       {
         path: 'channel',
         component: AllChannelComponent,
-      },
+      }
     ]
+  },
+  {
+     path: 'detail/:id',
+     component: DetailComponent
   }
 ];
 

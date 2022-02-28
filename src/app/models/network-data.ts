@@ -1,4 +1,5 @@
 export class NetworkData {
+  id: number
   title: string
   views: number
   type: string

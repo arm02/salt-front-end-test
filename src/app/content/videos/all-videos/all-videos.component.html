@@ -18,7 +18,7 @@
                     <div class="d-flex flex-row align-items-end">
                         <span class="activity-description-name text-theme-light me-1">{{video.user.fullName}}</span>
                     </div>
-                    <h3 class="activity-description text-theme-light">{{video.title}}</h3>
+                    <h3 class="activity-description text-theme-light"><a href="javascript:void(0)" class="text-theme-light" style="text-decoration: none;" [routerLink]="['/detail',video.id]">{{video.title}}</a></h3>
                 </div>
             </div>
             <hr>
