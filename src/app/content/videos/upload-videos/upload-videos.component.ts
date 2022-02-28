@@ -1,6 +1,5 @@
 import { Component, VERSION } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { UserService } from '../../../services/user.service';
 import { NetworkService } from '../../../services/network.service';
 import { NetworkData } from '../../../models/network-data';
 

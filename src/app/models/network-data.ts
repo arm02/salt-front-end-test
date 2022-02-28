@@ -3,4 +3,5 @@ export class NetworkData {
   views: number
   type: string
   path: string
+  file: string = null
 }

@@ -3,6 +3,8 @@ import {MatDialog} from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
 import { UploadPeopleComponent } from './upload-people/upload-people.component';
 import { UserService } from '../../services/user.service';
+import { NetworkService } from '../../services/network.service';
+import { Network } from '../../models/network';
 
 @Component({
   selector: 'people-component',
@@ -11,14 +13,21 @@ import { UserService } from '../../services/user.service';
 })
 export class PeopleComponent  {
   currentUser = null;
+  query: string;
   differ: any;
+
+  network = new Network
   constructor(public dialog: MatDialog,
     private userService: UserService,
+    private networkService: NetworkService,
     differs: IterableDiffers) {
+      this.loadHomePeople()
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {
         if (value) {
           this.currentUser = value;
+          if(this.currentUser){
+          }
         }
       });
   }
@@ -33,6 +42,16 @@ export class PeopleComponent  {
       });
     }
   }
+
+  loadHomePeople(){
+    this.networkService.getHomeNetwork(this.query, 'PEOPLE').subscribe(
+      data => {
+        this.network = data
+      }, error => {
+        console.log(error)
+      }
+    )
+  }
   
   uploadWork() {
     if(this.currentUser == null){
@@ -41,9 +60,12 @@ export class PeopleComponent  {
         data: null,
         disableClose: true
       });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        
+      dialogRef.afterClosed().subscribe(result => { 
+        this.userService.getRefresh().subscribe((value: any) => {
+          if (value) {
+            this.currentUser = value;
+          }
+        });
       });
     }else{
       const dialogRef = this.dialog.open(UploadPeopleComponent,{
@@ -51,9 +73,10 @@ export class PeopleComponent  {
         data: null,
         disableClose: true
       });
-  
       dialogRef.afterClosed().subscribe(result => {
-        
+        if(result){
+          this.loadHomePeople()
+        }
       });
     }
   }
