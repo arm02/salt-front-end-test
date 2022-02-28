@@ -29,7 +29,7 @@ import { AllActivityComponent } from './content/activity/all-activity/all-activi
 import { UploadContentComponent } from './content/upload-content.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailComponent } from './content/detail/detail.component';
-import { SearchComponent } from './content/sear/sear.component';
+import { SearchComponent } from './content/search/search.component';
 
 @NgModule({
   declarations: [
