@@ -15,9 +15,10 @@
     [scrollWindow]="false"
     (scrolled)="onScroll()">
       <div class="col-6" *ngFor="let data of arrayData">
-        <div class="channel-container bg-theme-light">
+        <div class="channel-container bg-theme-light overflow-img">
+          <img class="img-box" src="{{data.path}}" width="100%;" alt="">
           <div class="channel-description">
-            <span class="text-theme-dark fw-bold">{{data.name}}</span>
+            <span class="text-theme-dark fw-bold lv-text">{{data.name}}</span>
           </div>
         </div>
       </div>

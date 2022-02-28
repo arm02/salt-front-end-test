@@ -28,6 +28,8 @@ import { AllChannelComponent } from './content/channel/all-channel/all-channel.c
 import { AllActivityComponent } from './content/activity/all-activity/all-activity.component';
 import { UploadContentComponent } from './content/upload-content.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailComponent } from './content/detail/detail.component';
+import { SearchComponent } from './content/sear/sear.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AllPeopleComponent,
     AllChannelComponent,
     AllActivityComponent,
-    UploadContentComponent
+    UploadContentComponent,
+    DetailComponent,
+    SearchComponent
   ],
   imports: [
     AppRoutingModule,
