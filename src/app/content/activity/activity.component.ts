@@ -1,4 +1,7 @@
 import { Component, VERSION } from '@angular/core';
+import { NetworkService } from '../../services/network.service';
+import { Activity } from '../../models/activity';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'activity-component',
@@ -6,5 +9,19 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: [ './activity.component.css' ]
 })
 export class ActivityComponent  {
-  name = 'Angular ' + VERSION.major;
+  query: string;
+  activitys: Activity[]=[]
+  constructor(private networkService: NetworkService) {
+      this.loadAllActivity()
+  }
+
+  loadAllActivity(){
+    this.networkService.getAllActivity(this.query).subscribe(
+      data => {
+        this.activitys = data
+      }, error => {
+        console.log(error)
+      }
+    )
+  }
 }

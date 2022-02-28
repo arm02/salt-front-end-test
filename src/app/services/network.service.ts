@@ -58,6 +58,30 @@ export class NetworkService {
       );
   }
 
+  getAllActivity(query: string) {
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_GET_ACTIVITY + "?";
+    url += "q=" + (query == null ? "" : query)
+    url += "&page=1"
+    url += "&offset=6"
+
+    return this.http.get(url,
+      {
+        headers
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          } else {
+            throw new Error(res.message);
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
   uploadNetwork(data) {
     const headers = new HttpHeaders().set("token", localStorage.getItem("jwt"));
     let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_CREATE_NETWORK;
