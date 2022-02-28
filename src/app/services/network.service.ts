@@ -39,7 +39,7 @@ export class NetworkService {
     const headers = new HttpHeaders().set("Content-Type", "application/json");
     let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_GET_NETWORK + "?";
     url += "q=" + (query == null ? "" : query)
-    url += "&type=" + type
+    url += "&type=" + (type == null ? "" : type)
 
     return this.http.get(url,
       {
