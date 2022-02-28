@@ -6,22 +6,24 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'activity-component',
   templateUrl: './activity.component.html',
-  styleUrls: [ './activity.component.css' ]
+  styleUrls: ['./activity.component.css'],
 })
-export class ActivityComponent  {
+export class ActivityComponent {
   query: string;
-  activitys: Activity[]=[]
+  activitys: Activity[] = [];
   constructor(private networkService: NetworkService) {
-      this.loadAllActivity()
+    this.loadAllActivity();
   }
 
-  loadAllActivity(){
+  loadAllActivity() {
     this.networkService.getAllActivity(this.query).subscribe(
-      data => {
-        this.activitys = data
-      }, error => {
-        console.log(error)
+      (data) => {
+        this.activitys = data;
+        console.log(this.activitys);
+      },
+      (error) => {
+        console.log(error);
       }
-    )
+    );
   }
 }
