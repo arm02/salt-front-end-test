@@ -27,6 +27,7 @@ import { AllPeopleComponent } from './content/people/all-people/all-people.compo
 import { AllChannelComponent } from './content/channel/all-channel/all-channel.component';
 import { AllActivityComponent } from './content/activity/all-activity/all-activity.component';
 import { UploadContentComponent } from './content/upload-content.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { UploadContentComponent } from './content/upload-content.component';
     ReactiveFormsModule,
     MaterialExampleModule,
     InfiniteScrollModule,
+    NgbModule
   ],
   bootstrap: [AppComponent],
 })

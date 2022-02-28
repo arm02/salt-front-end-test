@@ -16,7 +16,9 @@
       <div
         class="activity-container d-flex flex-row justify-content-between"
       >
-        <div class="activity-image-container bg-theme-light"></div>
+        <div class="activity-image-container bg-theme-light overflow-img">
+        
+        <img class="img-box" src="{{ activity.user.profilePhoto ? activity.user.profilePhoto :  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg'}}" width="100%;" alt=""></div>
         <div
           class="
             activity-description-container
