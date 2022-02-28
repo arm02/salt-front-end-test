@@ -19,11 +19,16 @@
     </a>
     <div class="search-bar">
       <input
+      name="search"
+      [(ngModel)]="query"
         type="text"
         class="form-control rounded-0 bg-theme-light text-theme-dark"
         placeholder="Find..."
       />
-      <button type="button" class="btn btn-search">
+      <button type="button" class="btn btn-search" [routerLink]="['/search']"
+      [queryParams]="{ query: query }"
+      queryParamsHandling="merge"
+          >
         <i class="fa-solid fa-search text-theme-dark"></i>
       </button>
     </div>

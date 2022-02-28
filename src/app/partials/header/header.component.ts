@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent {
   currentUser = null;
   differ: any;
+  query = "asu"
   constructor(private router: ActivatedRoute,
     public dialog: MatDialog,
     private userService: UserService,
