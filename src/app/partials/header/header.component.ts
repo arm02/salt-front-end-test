@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent {
   currentUser = null;
   differ: any;
-  query = "asu"
+  query = ""
   constructor(private router: ActivatedRoute,
     public dialog: MatDialog,
     private userService: UserService,
@@ -39,6 +39,10 @@ export class HeaderComponent {
         }
       });
     }
+  }
+
+  search(){
+    this.sendMessage()
   }
 
   accountOpen() {

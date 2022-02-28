@@ -27,7 +27,7 @@
       />
       <button type="button" class="btn btn-search" [routerLink]="['/search']"
       [queryParams]="{ query: query }"
-      queryParamsHandling="merge"
+      queryParamsHandling="merge" (click)="search()"
           >
         <i class="fa-solid fa-search text-theme-dark"></i>
       </button>

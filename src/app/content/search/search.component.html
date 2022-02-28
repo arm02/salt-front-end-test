@@ -1,0 +1,29 @@
+<div id="video" class="my-4">
+  <div class="content-header d-flex flex-row align-items-center">
+      <h3 class="content-title mb-0 text-theme-light">Search {{query}}</h3>  
+  </div>
+  <div class="content-body row">
+                                      
+  <div class="col-12 bottom-content">
+      <div class="row">
+          <div class="col-md-12" *ngFor="let network of networks">
+              <div class="activity-container d-flex flex-row justify-content-between">
+                  <div class="activity-image-container bg-theme-light overflow-img">
+                      <video controls="" class="img-box" name="media" width="100%" *ngIf="network.type == 'VIDEO'">
+                      <source src="{{network.path}}" type="video/mp4">
+                    </video>
+                    <img class="img-box" src="{{network.file}}" width="100%;" alt="" *ngIf="network.type != 'VIDEO'">
+                  </div>
+                  <div class="activity-description-container d-flex flex-column justify-content-between">
+                      <div class="d-flex flex-row align-items-end">
+                          <span class="activity-description-name text-theme-light me-1">{{network.user.fullName}}</span>
+                      </div>
+                      <h3 class="activity-description text-theme-light"><a href="javascript:void(0)" class="text-theme-light" style="text-decoration: none;" [routerLink]="['/detail',network.id]">{{network.title}}</a></h3>
+                  </div>
+              </div>
+              <hr>
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>

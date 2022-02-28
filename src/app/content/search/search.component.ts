@@ -3,6 +3,7 @@ import { BehaviorSubject, filter } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { NetworkService } from '../../services/network.service';
 import { NetworkData } from '../../models/network-data';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'search-component',
@@ -10,23 +11,34 @@ import { NetworkData } from '../../models/network-data';
   styleUrls: ['./search.component.css'],
 })
 export class SearchComponent {
-  query: string;
+  query = "";
 
   networks: NetworkData[]=[]
+  private subscriptionName: Subscription;
   constructor(private route: ActivatedRoute,
     private networkService: NetworkService){
-      tloadAllNetwork()
+      this.route.queryParams.subscribe(params => {
+        this.query = params['query']
+        this.loadFromSearch()
+        this.loadAllNetwork()
+      });
   }
 
   loadAllNetwork(){
-    this.networkService.getAllNetwork(this.route.snapshot.queryParams['query'], null).subscribe(
+    this.networkService.getAllNetwork(this.query, null).subscribe(
       data => {
         this.networks = data.object
-        console.log(this.networks)
       }, error => {
         console.log(error)
       }
     )
+  }
+
+  loadFromSearch(){                    
+      this.subscriptionName= this.networkService.getUpdate().subscribe
+        (message => { 
+          this.loadAllNetwork()
+        });
   }
 }
 
