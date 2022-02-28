@@ -47,7 +47,7 @@ export class UploadPeopleComponent  {
         this.messageLoading = 'Uploading Banner'
         this.networkService.uploadFile(formData).subscribe(data => {
           this.isLoading = false
-          this.messageLoading = 'Submit'
+          this.messageLoading = 'Upload'
           this.networkData.file = data.url
         })
       }
@@ -61,7 +61,7 @@ export class UploadPeopleComponent  {
     this.networkData.type = 'PEOPLE'
     this.networkService.uploadNetwork(this.networkData).subscribe(data => {
       this.isLoading = false
-      this.messageLoading = 'Submit'
+      this.messageLoading = 'Upload'
       this.dialogRef.close(true);
     })
   }

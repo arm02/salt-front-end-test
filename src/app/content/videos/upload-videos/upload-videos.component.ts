@@ -30,7 +30,7 @@ export class UploadVideosComponent  {
         this.messageLoading = 'Uploading Videos'
         this.networkService.uploadFile(formData).subscribe(data => {
           this.isLoading = false
-          this.messageLoading = 'Submit'
+          this.messageLoading = 'Upload'
           this.networkData.path = data.url
         })
       }
@@ -44,7 +44,7 @@ export class UploadVideosComponent  {
     this.networkData.type = 'VIDEO'
     this.networkService.uploadNetwork(this.networkData).subscribe(data => {
       this.isLoading = false
-      this.messageLoading = 'Submit'
+      this.messageLoading = 'Upload'
       this.dialogRef.close(true);
     })
   }

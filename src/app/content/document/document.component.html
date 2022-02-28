@@ -20,14 +20,14 @@
           "
         >
           <div class="d-flex flex-column">
-            <img class="img-box" src="https://www.harapanrakyat.com/wp-content/uploads/2020/11/Jenis-Kucing-Terpopuler-untuk-Dipelihara-yang-Unik-dan-Bersahabat.jpg" width="100%;" alt="">
-            <h4 class="text-theme-dark mb-0 lv-text">
-              Mobile ui & ux guide 2013
+          <img class="img-box" src="{{network.object1 ? network.object1.file : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg'}}" width="100%;" alt="">
+          <h4 class="text-theme-dark mb-0 lv-text">
+          {{network.object1 ? network.object1.title : 'No Title'}}
             </h4>
-            <span class="text-theme-dark lv-text"> By William Makheja </span>
+            <span class="text-theme-dark lv-text"> {{network.object1 ? 'By ' + network.object1.user.fullName : '-'}} </span>
           </div>
           <div>
-            <span class="text-theme-dark fw-light lv-text">1234 views</span>
+            <span class="text-theme-dark fw-light lv-text">{{network.object1 ? network.object1.views : '0'}} views</span>
           </div>
         </div>
       </div>
@@ -46,14 +46,14 @@
               "
             >
               <div>
-                <img class="img-box" src="https://www.harapanrakyat.com/wp-content/uploads/2020/11/Jenis-Kucing-Terpopuler-untuk-Dipelihara-yang-Unik-dan-Bersahabat.jpg" width="100%;" alt="">
-                <span class="text-theme-dark lv-text">
-                  HTML 5 and usage
+              <img class="img-box" src="{{network.object2 ? network.object2.file : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg'}}" width="100%;" alt="">
+              <span class="text-theme-dark lv-text">
+              {{network.object2 ? network.object2.title : 'No Title'}}
                 </span>
               </div>
               <div>
                 <span class="text-theme-dark fw-light lv-text"
-                  >1234 views</span
+                  >{{network.object2 ? network.object2.views : '0'}} views</span
                 >
               </div>
             </div>
@@ -71,14 +71,14 @@
               "
             >
               <div>
-                <img class="img-box" src="https://www.harapanrakyat.com/wp-content/uploads/2020/11/Jenis-Kucing-Terpopuler-untuk-Dipelihara-yang-Unik-dan-Bersahabat.jpg" width="100%;" alt=""> 
-                <span class="text-theme-dark lv-text">
-                  How to become and expert?
+              <img class="img-box" src="{{network.object3 ? network.object3.file : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg'}}" width="100%;" alt="">
+              <span class="text-theme-dark lv-text">
+              {{network.object3 ? network.object3.title : 'No Title'}}
                 </span>
               </div>
               <div>
                 <span class="text-theme-dark fw-light lv-text"
-                  >1234 views</span
+                  >{{network.object3 ? network.object3.views : '0'}} views</span
                 >
               </div>
             </div>
@@ -100,14 +100,14 @@
               "
             >
               <div>
-                <img class="img-box" src="https://www.harapanrakyat.com/wp-content/uploads/2020/11/Jenis-Kucing-Terpopuler-untuk-Dipelihara-yang-Unik-dan-Bersahabat.jpg" width="100%;" alt=""> 
-                <span class="text-theme-dark lv-text">
-                  2013 Marketing trends
+              <img class="img-box" src="{{network.object4 ? network.object4.file : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg'}}" width="100%;" alt="">
+              <span class="text-theme-dark lv-text">
+              {{network.object4 ? network.object4.title : 'No Title'}}
                 </span>
               </div>
               <div>
                 <span class="text-theme-dark fw-light lv-text"
-                  >1234 views</span
+                  >{{network.object4 ? network.object4.views : '0'}} views</span
                 >
               </div>
             </div>
@@ -125,14 +125,14 @@
               "
             >
               <div>
-                <img class="img-box" src="https://www.harapanrakyat.com/wp-content/uploads/2020/11/Jenis-Kucing-Terpopuler-untuk-Dipelihara-yang-Unik-dan-Bersahabat.jpg" width="100%;" alt=""> 
-                <span class="text-theme-dark lv-text">
-                  2013 Marketing trends
+              <img class="img-box" src="{{network.object5 ? network.object5.file : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg'}}" width="100%;" alt="">
+              <span class="text-theme-dark lv-text">
+              {{network.object5 ? network.object5.title : 'No Title'}}
                 </span>
               </div>
               <div>
                 <span class="text-theme-dark fw-light lv-text"
-                  >1234 views</span
+                  >{{network.object5 ? network.object5.views : '0'}} views</span
                 >
               </div>
             </div>

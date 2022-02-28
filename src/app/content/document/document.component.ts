@@ -3,6 +3,8 @@ import {MatDialog} from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
 import { UploadDocumentComponent } from './upload-document/upload-document.component';
 import { UserService } from '../../services/user.service';
+import { NetworkService } from '../../services/network.service';
+import { Network } from '../../models/network';
 
 @Component({
   selector: 'document-component',
@@ -11,14 +13,21 @@ import { UserService } from '../../services/user.service';
 })
 export class DocumentComponent  {
   currentUser = null;
+  query: string;
   differ: any;
+
+  network = new Network
   constructor(public dialog: MatDialog,
     private userService: UserService,
+    private networkService: NetworkService,
     differs: IterableDiffers) {
+      this.loadHomeDocument()
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {
         if (value) {
           this.currentUser = value;
+          if(this.currentUser){
+          }
         }
       });
   }
@@ -32,6 +41,16 @@ export class DocumentComponent  {
         }
       });
     }
+  }
+
+  loadHomeDocument(){
+    this.networkService.getHomeNetwork(this.query, 'DOCUMENT').subscribe(
+      data => {
+        this.network = data
+      }, error => {
+        console.log(error)
+      }
+    )
   }
   
   uploadDocument() {
@@ -53,7 +72,9 @@ export class DocumentComponent  {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        
+        if(result){
+          this.loadHomeDocument()
+        }
       });
     }
   }
