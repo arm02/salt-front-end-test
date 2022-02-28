@@ -1,7 +1,7 @@
 import { Component, VERSION } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { NetworkService } from '../services/network.service';
-import { NetworkData } from '../../models/network-data';
+import { NetworkData } from '../models/network-data';
 
 @Component({
   selector: 'upload-content-component',
@@ -18,6 +18,7 @@ export class UploadContentComponent  {
   constructor(public dialog: MatDialog,
     public dialogRef: MatDialogRef<UploadContentComponent>,
     private networkService: NetworkService) {
+      this.networkData.type = 'VIDEO'
   }
 
   handleFileInput(event) {
@@ -62,6 +63,7 @@ export class UploadContentComponent  {
       this.isLoading = false
       this.messageLoading = 'Upload'
       this.dialogRef.close(true);
+      window.location.reload()
     })
   }
 

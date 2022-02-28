@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { SignInComponent } from '../../auth/signin/signin.component';
 import { UploadContentComponent } from '../../content/upload-content.component';
 import { UserService } from '../../services/user.service';
+import { NetworkService } from '../../services/network.service';
+import { Network } from '../../models/network';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +17,7 @@ export class HeaderComponent {
   constructor(
     public dialog: MatDialog,
     private userService: UserService,
+    private networkService: NetworkService,
     differs: IterableDiffers
   ) {
     this.differ = differs.find([]).create(null);
@@ -73,10 +76,15 @@ export class HeaderComponent {
         data: null,
         disableClose: true,
       });
-
+      
       dialogRef.afterClosed().subscribe((result) => {
         console.log(`Dialog result: ${result}`);
+        this.sendMessage()
       });
     }
+  }
+
+  sendMessage(): void {
+    this.networkService.sendUpdate('Message from Sender Component to Receiver Component!');
   }
 }

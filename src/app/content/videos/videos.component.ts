@@ -5,6 +5,7 @@ import { UploadVideosComponent } from './upload-videos/upload-videos.component';
 import { UserService } from '../../services/user.service';
 import { NetworkService } from '../../services/network.service';
 import { Network } from '../../models/network';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'videos-component',
@@ -17,10 +18,15 @@ export class VideosComponent  {
   differ: any;
 
   network = new Network
+  private subscriptionName: Subscription;
   constructor(public dialog: MatDialog,
     private userService: UserService,
     private networkService: NetworkService,
     differs: IterableDiffers) {
+      this.subscriptionName= this.networkService.getUpdate().subscribe
+      (message => { 
+      console.log(message)
+      });
       this.loadHomeVideos()
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {

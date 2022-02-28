@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
+import { Subject , Observable, throwError } from 'rxjs';
 import { catchError, map, } from 'rxjs/operators';
 import { AppConstant } from '../constant/AppConstant';
 
@@ -9,7 +9,7 @@ import { AppConstant } from '../constant/AppConstant';
   providedIn: 'root',
 })
 export class NetworkService {
-
+  private subjectName = new Subject<any>();
   constructor(private http: HttpClient, private router: Router) { }
 
   getHomeNetwork(query: string, type: string = null) {
@@ -73,6 +73,14 @@ export class NetworkService {
         }),
         catchError((e: Response) => this.handleError(e))
       );
+  }
+
+  sendUpdate(message: string) { 
+    this.subjectName.next({ text: message }); 
+  }
+
+  getUpdate(): Observable<any> { 
+      return this.subjectName.asObservable(); 
   }
 
   private handleError(error: any) {
