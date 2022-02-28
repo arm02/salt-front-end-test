@@ -6,4 +6,5 @@ export class NetworkData {
   path: string
   file: string = null
   user: any
+  createdAt: any
 }

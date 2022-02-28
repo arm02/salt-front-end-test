@@ -13,6 +13,8 @@ body{
   background-color: #953E45;
 }
 
+.detail-img{width: 100%;}
+
 .text-theme-dark{
   color: #953E45
 }
@@ -210,7 +212,14 @@ a:hover {
 .full-video{padding: 0px;}
 .no-padding{padding: 0px !important;}
 .lv-text{position: relative; color: #fff;}
-
+.card{
+  background-color: transparent !important;
+  color: #fff;
+  border: 0 none;
+  border-bottom: 1px solid;
+  border-color: #a1666b !important;
+  border-radius: 0px;
+}
 @media only screen and (max-width: 600px) {
 .header-mobile {display: block !important;}
 .search-bar{width: 100%; margin-bottom: 5px;}

@@ -1,1 +1,47 @@
-details-works!
+<div id="video" class="my-4">
+<div class="content-header d-flex flex-row align-items-center">
+    <h3 class="content-title mb-3 text-theme-light">Videos</h3>
+</div>
+<div class="content-body row">
+    <div class="col-8 bottom-content">
+        <div class="row">
+
+            <div class="col-md-12">
+                <img src="{{networkData.file}}" class="detail-img mb-3" alt="" *ngIf="networkData.type != 'VIDEO'">
+                <video controls="" class="detail-img mb-3" name="media" *ngIf="networkData.type == 'VIDEO'">
+                <source src="{{networkData.path}}" type="video/mp4">
+                </video>
+                <small class="text-theme-light">{{ networkData.user ? networkData.user.fullName : '-' }}</small>
+                <h3 class="text-theme-light">Lorem ipsum dolor si amet</h3>
+                <small class="text-theme-light">{{networkData.createdAt | date:'EEEE, MMMM d, y, h:mm a'}}</small>
+                <br><br>
+            </div>
+
+            <div class="col-md-12">
+            <div class="content-header mt-2 d-flex flex-row align-items-center">
+                <h3 class="content-title mb-3 text-theme-light">Comments</h3>
+            </div>
+                <div class="container mb-5 g-0">
+                    <div class="row d-flex">
+                    <div class="col-md-12">
+                    <form>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label text-theme-light">Your comment</label>
+                        <input type="text" class="form-control" id="inputComment" aria-describedby="">
+                      </div>
+                      <button type="submit" class="btn rounded-0 bg-theme-light text-theme-dark float-end">Submit</button>
+                    </form>
+                </div>
+                        <div class="col-md-12 scroll">
+                            <div class="card p-3 mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="user d-flex flex-row align-items-center"> <img style="margin-right: 10px;" src="images/user.jpg" width="30" class="user-img rounded-circle mr-2"> <span><small class="font-weight-bold text-theme-light">james_olesenn</small> <br> <small class="font-weight-bold">Hmm, This poster looks cool</small></span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>

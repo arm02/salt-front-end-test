@@ -58,6 +58,26 @@ export class NetworkService {
       );
   }
 
+  getNetwork(id: number) {
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_GET_NETWORK + "/" + id;
+    return this.http.get(url,
+      {
+        headers
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          } else {
+            throw new Error(res.message);
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
   getAllActivity(query: string) {
     const headers = new HttpHeaders().set("Content-Type", "application/json");
     let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_GET_ACTIVITY + "?";
