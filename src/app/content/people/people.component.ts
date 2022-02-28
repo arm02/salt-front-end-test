@@ -5,6 +5,7 @@ import { UploadPeopleComponent } from './upload-people/upload-people.component';
 import { UserService } from '../../services/user.service';
 import { NetworkService } from '../../services/network.service';
 import { Network } from '../../models/network';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'people-component',
@@ -17,10 +18,12 @@ export class PeopleComponent  {
   differ: any;
 
   network = new Network
+  private subscriptionName: Subscription;
   constructor(public dialog: MatDialog,
     private userService: UserService,
     private networkService: NetworkService,
     differs: IterableDiffers) {
+      this.loadFromUpload()
       this.loadHomePeople()
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {
@@ -41,6 +44,13 @@ export class PeopleComponent  {
         }
       });
     }
+  }
+
+  loadFromUpload(){
+    this.subscriptionName= this.networkService.getUpdate().subscribe
+    (message => { 
+      this.loadHomePeople()
+    });
   }
 
   loadHomePeople(){

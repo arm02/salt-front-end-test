@@ -4,4 +4,5 @@ export class NetworkData {
   type: string
   path: string
   file: string = null
+  user: any
 }

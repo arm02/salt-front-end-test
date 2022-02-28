@@ -1,5 +1,7 @@
 import { Component, VERSION } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { NetworkService } from '../../../services/network.service';
+import { NetworkData } from '../../../models/network-data';
 
 @Component({
   selector: 'all-videos-component',
@@ -8,7 +10,21 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class AllVideosComponent  {
   currentUser = null;
-  constructor(public dialog: MatDialog) {
-    this.currentUser = "T"
+  query: string;
+
+  videos: NetworkData[]=[]
+  constructor(public dialog: MatDialog,
+    private networkService: NetworkService) {
+      this.loadHomeVideos()
+  }
+
+  loadHomeVideos(){
+    this.networkService.getAllNetwork(this.query, 'VIDEO').subscribe(
+      data => {
+        this.videos = data.object
+      }, error => {
+        console.log(error)
+      }
+    )
   }
 }

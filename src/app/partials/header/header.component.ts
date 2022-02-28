@@ -78,13 +78,12 @@ export class HeaderComponent {
       });
       
       dialogRef.afterClosed().subscribe((result) => {
-        console.log(`Dialog result: ${result}`);
         this.sendMessage()
       });
     }
   }
 
   sendMessage(): void {
-    this.networkService.sendUpdate('Message from Sender Component to Receiver Component!');
+    this.networkService.sendUpdate();
   }
 }

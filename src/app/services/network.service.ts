@@ -35,6 +35,29 @@ export class NetworkService {
       );
   }
 
+  getAllNetwork(query: string, type: string = null) {
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_GET_NETWORK + "?";
+    url += "q=" + (query == null ? "" : query)
+    url += "&type=" + type
+
+    return this.http.get(url,
+      {
+        headers
+      })
+      .pipe(
+        map((response) => {
+          let res = JSON.parse(JSON.stringify(response));
+          if (res.returnValue == '200') {
+            return res;
+          } else {
+            throw new Error(res.message);
+          }
+        }),
+        catchError((e: Response) => this.handleError(e))
+      );
+  }
+
   uploadNetwork(data) {
     const headers = new HttpHeaders().set("token", localStorage.getItem("jwt"));
     let url = AppConstant.PROJECT_SERVICE_ENDPOINT + AppConstant.API_CREATE_NETWORK;
@@ -75,8 +98,8 @@ export class NetworkService {
       );
   }
 
-  sendUpdate(message: string) { 
-    this.subjectName.next({ text: message }); 
+  sendUpdate() { 
+    this.subjectName.next({}); 
   }
 
   getUpdate(): Observable<any> { 

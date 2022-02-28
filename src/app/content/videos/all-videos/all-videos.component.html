@@ -1,1 +1,29 @@
-videos works!
+<div id="video" class="my-4">
+<div class="content-header d-flex flex-row align-items-center">
+    <h3 class="content-title mb-0 text-theme-light">Videos</h3>  
+</div>
+<div class="content-body row">
+                                    
+<div class="col-12 bottom-content">
+    <div class="row">
+        <div class="col-md-12" *ngFor="let video of videos">
+            <div class="activity-container d-flex flex-row justify-content-between">
+                <div class="activity-image-container bg-theme-light overflow-img">
+                    <video controls="" class="img-box" name="media" width="100%" *ngIf="video.path">
+                    <source src="{{video.path}}" type="video/mp4">
+                  </video>
+                  <img class="img-box" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg" width="100%;" alt="" *ngIf="!video.path">
+                </div>
+                <div class="activity-description-container d-flex flex-column justify-content-between">
+                    <div class="d-flex flex-row align-items-end">
+                        <span class="activity-description-name text-theme-light me-1">{{video.user.fullName}}</span>
+                    </div>
+                    <h3 class="activity-description text-theme-light">{{video.title}}</h3>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>
+</div>

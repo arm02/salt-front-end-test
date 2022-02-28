@@ -23,10 +23,7 @@ export class VideosComponent  {
     private userService: UserService,
     private networkService: NetworkService,
     differs: IterableDiffers) {
-      this.subscriptionName= this.networkService.getUpdate().subscribe
-      (message => { 
-      console.log(message)
-      });
+      this.loadFromUpload()
       this.loadHomeVideos()
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {
@@ -50,6 +47,13 @@ export class VideosComponent  {
         }
       });
     }
+  }
+
+  loadFromUpload(){
+    this.subscriptionName= this.networkService.getUpdate().subscribe
+    (message => { 
+      this.loadHomeVideos()
+    });
   }
 
   loadHomeVideos(){

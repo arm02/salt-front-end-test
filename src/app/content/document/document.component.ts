@@ -5,6 +5,7 @@ import { UploadDocumentComponent } from './upload-document/upload-document.compo
 import { UserService } from '../../services/user.service';
 import { NetworkService } from '../../services/network.service';
 import { Network } from '../../models/network';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'document-component',
@@ -17,10 +18,12 @@ export class DocumentComponent  {
   differ: any;
 
   network = new Network
+  private subscriptionName: Subscription;
   constructor(public dialog: MatDialog,
     private userService: UserService,
     private networkService: NetworkService,
     differs: IterableDiffers) {
+      this.loadFromUpload()
       this.loadHomeDocument()
       this.differ = differs.find([]).create(null);
       this.userService.getRefresh().subscribe((value: any) => {
@@ -41,6 +44,13 @@ export class DocumentComponent  {
         }
       });
     }
+  }
+
+  loadFromUpload(){
+    this.subscriptionName= this.networkService.getUpdate().subscribe
+    (message => { 
+      this.loadHomeDocument()
+    });
   }
 
   loadHomeDocument(){

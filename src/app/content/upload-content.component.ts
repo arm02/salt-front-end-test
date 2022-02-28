@@ -63,7 +63,6 @@ export class UploadContentComponent  {
       this.isLoading = false
       this.messageLoading = 'Upload'
       this.dialogRef.close(true);
-      window.location.reload()
     })
   }
 
