@@ -15,7 +15,7 @@
                     <div class="d-flex flex-row align-items-end">
                         <span class="activity-description-name text-theme-light me-1">{{people.user.fullName}}</span>
                     </div>
-                    <h3 class="activity-description text-theme-light">{{people.title}}</h3>
+                    <h3 class="activity-description text-theme-light"><a href="javascript:void(0)" class="text-theme-light" style="text-decoration: none;" [routerLink]="['/detail',people.id]">{{people.title}}</a></h3>
                 </div>
             </div>
             <hr>
